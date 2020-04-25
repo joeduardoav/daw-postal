@@ -2,8 +2,46 @@
 <html>
 <head>
 	<title>DAW Postal</title>
+	<link rel="stylesheet" type="text/css" href="postal-style.css">
 </head>
 <body>
+	<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+	<div id="root"> </div>
+	
+	<script type="text/babel">
+		const rootElement = document.getElementById('root');
+
+		const Postal = (p) => {
+			return(
+			<>
+				<img src="venecia.png" className="image" />
+				<div id="datos">
+					<div>Remitente:</div>
+					<div>José Eduardo</div>
+					<br/>
+					<div>Destinatario: </div>
+				</div>
+			</>
+			)
+		}
+
+		Postal.propTypes = {
+		}
+
+		const elementJSX = (
+			<>
+				<Postal>
+
+				</Postal>
+			</>
+		);
+
+		ReactDOM.render(elementJSX, rootElement);
+	</script>
 
 </body>
 </html>
