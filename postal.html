@@ -15,15 +15,26 @@
 	<script type="text/babel">
 		const rootElement = document.getElementById('root');
 
-		const Postal = (p) => {
+		const destino = {
+			children: 'Anahí',
+		};
+		const mensaje = {
+			children: 'Mensaje de prueba',
+		}; 
+
+
+		const Postal = () => {
 			return(
 			<>
 				<img src="venecia.png" className="image" />
 				<div id="datos">
 					<div>Remitente:</div>
-					<div>José Eduardo</div>
+					<div>Eduardo</div>
 					<br/>
 					<div>Destinatario: </div>
+					<div {...destino} />
+					<br/>
+					<div {...mensaje} />
 				</div>
 			</>
 			)
