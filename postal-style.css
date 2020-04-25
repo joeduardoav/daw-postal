@@ -13,19 +13,21 @@
 	flex-flow: row wrap;
 }
 
-#dinamico{
+.cuadro1{
 	display: flex;
 	flex-flow: column wrap;
 }
-
-
 .image{
-	height: 25em;
+	height: 23em;
 	margin: 1.5em;
+	margin-bottom: .5em;
 	border-radius: 5px;
 }
+.location{
+	margin-left: 1.5em;
+}
 
-#datos{
+.datos{
 	padding:1.5em;
 	display: flex;
 	flex-flow: column wrap;
