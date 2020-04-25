@@ -15,15 +15,14 @@
 	<script type="text/babel">
 		const rootElement = document.getElementById('root');
 
-		const destino = {
-			children: 'Emma',
+		const props = {
+			destino: 'Emma',
+			mensaje: 'Te extraño mucho, amiga.',
 		};
-		const mensaje = {
-			children: 'Te extraño mucho, amiga.',
-		}; 
 
+		console.log(props);
 
-		const Postal = () => {
+		const Postal = (props) => {
 			return(
 			<>
 				<div className="cuadro1">
@@ -36,11 +35,10 @@
 					<div>Eddy</div>
 					<br/>
 					<div>Destinatario: </div>
-					<div {...destino} />
+					<div> {props.destino} </div>
 					<br/>
-					<div {...mensaje} />
+					<div> {props.mensaje} </div>
 				</div>
-
 
 			</>
 			)
@@ -51,9 +49,7 @@
 
 		const elementJSX = (
 			<>
-				<Postal>
-
-				</Postal>
+				<Postal {...props}> </Postal>
 			</>
 		);
 
