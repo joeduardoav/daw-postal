@@ -3,17 +3,17 @@
 	font-size: 14px;
 }
 
-#root{
-	height: 400px;
-	width: 700px;
-	background-color: #FFF6DC;
-	border-radius: 5px;
-
+.postCard{
 	display: flex;
 	flex-flow: row wrap;
+
+	height: 27em;
+	width: 45em;
+	background-color: #FFF6DC; /*color original*/
+	border-radius: 5px;
 }
 
-.cuadro1{
+.photoArea{
 	display: flex;
 	flex-flow: column wrap;
 }
@@ -27,8 +27,9 @@
 	margin-left: 1.5em;
 }
 
-.datos{
-	padding:1.5em;
+.data{
 	display: flex;
 	flex-flow: column wrap;
+	
+	padding:1.5em;
 }
