@@ -27,25 +27,25 @@
 
 			//1  tener en mente que variables necesito
 			//la notación || es para hacer este o aquello
-			const[destiny, setDestiny] = React.useState(window.localStorage.getItem('destiny') || ''); //
+			const[addressee, setAddressee] = React.useState(window.localStorage.getItem('addressee') || ''); //
 			const[message, setMessage] = React.useState(window.localStorage.getItem('message') || '');
 
 
 			//almacenamiento local
-			React.useEffect(()=> window.localStorage.setItem('destiny', destiny));
+			React.useEffect(()=> window.localStorage.setItem('addressee', addressee));
 			React.useEffect(()=> window.localStorage.setItem('message', message));
 
 
 			//2  utilizar/manipular estas variables mediante funciones
-			function destinyFunc(event){
-				setDestiny(event.target.value);
+			function addresseeFunc(event){
+				setAddressee(event.target.value);
 			}
 			function messageFunc(event){
 				setMessage(event.target.value);
 			}
 
 			function alertSendTo(){
-				alert(`Enviando postal a ${destiny}`);
+				alert(`Enviando postal a ${addressee}`);
 			}
 
 			//3  en el siguiente html, llamarás nombres de variables y funciones:
@@ -61,10 +61,10 @@
 					<div>Remitente:</div>
 					<div>Eddy</div>
 					<br/>
-					<div>Destinatario: {destiny} </div>
+					<div>Destinatario: {addressee} </div>
 					<input
-						onChange={destinyFunc}
-						value={destiny}
+						onChange={addresseeFunc}
+						value={addressee}
 					></input>
 					<br/>
 					<div>Mensaje:</div>
@@ -82,7 +82,7 @@
 		}
 
 		PostCard.propTypes = {
-			destiny: PropTypes.string,
+			addressee: PropTypes.string,
 			message: PropTypes.string,
 			backgroundColor: PropTypes.string,
 			fontStyle: PropTypes.string,
