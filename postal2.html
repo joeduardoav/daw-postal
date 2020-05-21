@@ -10,14 +10,8 @@
 	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 
 	<div id="root"> </div>
-	<!---->
 	<script type="text/babel">
 		const rootElement = document.getElementById('root');
-
-		const props = {
-			destino: 'Emma',
-			message: 'Te extraño mucho, amiga.',
-		};
 
 		const PostCard = (props) => {
 
@@ -26,14 +20,38 @@
 				fontStyle,
 			} = props;
 
-			
 			const stylesPrincipal = {
 				...(backgroundColor ? {backgroundColor: backgroundColor} : undefined), //o props.backgroundColor
 				...(fontStyle ? {fontStyle: fontStyle} : undefined) //o props.fontStyle
 			}
 
+			//1  tener en mente que variables necesito
+			//la notación || es para hacer este o aquello
+			const[destiny, setDestiny] = React.useState(window.localStorage.getItem('destiny') || ''); //
+			const[message, setMessage] = React.useState(window.localStorage.getItem('message') || '');
+
+
+			//almacenamiento local
+			React.useEffect(()=> window.localStorage.setItem('destiny', destiny));
+			React.useEffect(()=> window.localStorage.setItem('message', message));
+
+
+			//2  utilizar/manipular estas variables mediante funciones
+			function destinyFunc(event){
+				setDestiny(event.target.value);
+			}
+			function messageFunc(event){
+				setMessage(event.target.value);
+			}
+
+			function alertSendTo(){
+				alert(`Enviando postal a ${destiny}`);
+			}
+
+			//3  en el siguiente html, llamarás nombres de variables y funciones:
 			return(
 			<div className="postCard" style={{...stylesPrincipal}}>
+
 				<div className="photoArea">
 					<img src="venecia.png" className="image" />
 					<div className="location">Desde Venecia, con mucho cariño :)</div>
@@ -43,20 +61,31 @@
 					<div>Remitente:</div>
 					<div>Eddy</div>
 					<br/>
-					<div>Destinatario: </div>
-					<div> {props.destino} </div>
+					<div>Destinatario: {destiny} </div>
+					<input
+						onChange={destinyFunc}
+						value={destiny}
+					></input>
 					<br/>
-					<div> {props.mensaje} </div>
-				</div>
+					<div>Mensaje:</div>
+					<input
+						onChange={messageFunc}
+						value={message}
+					></input>
+					<div> {message} </div>
 
+					<button className="btn-send" onClick={alertSendTo}>Enviar</button>
+				</div>
+					
 			</div>
 			)
 		}
 
-		//validation of the component's props
 		PostCard.propTypes = {
 			destiny: PropTypes.string,
 			message: PropTypes.string,
+			backgroundColor: PropTypes.string,
+			fontStyle: PropTypes.string,
 		}
 
 
@@ -64,7 +93,6 @@
 		const App = (
 			<>
 				<PostCard 
-					{...props}
 					backgroundColor="EBFECC"
 					fontStyle="italic"
 				> </PostCard>
